@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+  <title>My Game Collection</title>
+  <meta name="description" content="Search my game collection and see which platform I own each game on.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Do I own it?</h1>
+      <p class="sub">Search my game collection</p>
+    </header>
+
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search for a game…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" aria-label="Search games">
+    </div>
+
+    <section id="results" class="results" aria-live="polite" hidden></section>
+
+    <section id="stats" class="stats" aria-label="Collection statistics">
+      <div class="totals">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-total">–</div>
+          <div class="stat-label">Games owned</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-unique">–</div>
+          <div class="stat-label">Unique titles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-platforms">–</div>
+          <div class="stat-label">Platforms</div>
+        </div>
+      </div>
+
+      <h2>By platform</h2>
+      <ul id="platform-list" class="platform-list"></ul>
+    </section>
+
+    <footer>
+      <span id="updated"></span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
