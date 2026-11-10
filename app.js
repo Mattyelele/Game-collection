@@ -46,6 +46,7 @@ function build(data) {
     if (!byKey.has(key)) byKey.set(key, { title: g.title, key, platforms: [] });
     const entry = byKey.get(key);
     if (!entry.platforms.includes(g.platform)) entry.platforms.push(g.platform);
+    if (g.completed) entry.done = true;
     perPlatform.set(g.platform, (perPlatform.get(g.platform) || 0) + 1);
   }
 
@@ -53,6 +54,7 @@ function build(data) {
   for (const t of titles) t.platforms.sort((a, b) => a.localeCompare(b));
 
   renderStats(games.length, titles.length, perPlatform);
+  $("stat-completed").textContent = games.filter((g) => g.completed).length.toLocaleString();
 
   if (data.updated) {
     const d = new Date(data.updated);
@@ -126,7 +128,7 @@ function runSearch() {
     const ul = el("ul", "result-list");
     for (const { t } of hits.slice(0, MAX_RESULTS)) {
       const li = el("li", "result");
-      li.append(el("span", "title", t.title));
+      li.append(el("span", "title", (t.done ? "✓ " : "") + t.title));
       const badges = el("span", "badges");
       for (const p of t.platforms) badges.append(el("span", "badge", p));
       li.append(badges);

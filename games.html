@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+  <title>All Games – My Game Collection</title>
+  <meta name="description" content="The full list of every game in my collection, with platforms, notes and completion dates.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="./">Search</a>
+    <a href="games.html" aria-current="page">All games</a>
+  </nav>
+
+  <main class="wide">
+    <header class="hero compact">
+      <h1>All games</h1>
+      <p class="sub" id="count-line">Loading…</p>
+    </header>
+
+    <div class="controls">
+      <input id="filter" type="search" placeholder="Filter by title or notes…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" aria-label="Filter games">
+      <div class="control-row">
+        <select id="platform" aria-label="Platform"><option value="">All platforms</option></select>
+        <select id="status" aria-label="Completion status">
+          <option value="">Any status</option>
+          <option value="completed">Completed</option>
+          <option value="not">Not completed</option>
+        </select>
+        <select id="sort" aria-label="Sort by">
+          <option value="title">Sort: Title A–Z</option>
+          <option value="platform">Sort: Platform</option>
+          <option value="recent">Sort: Recently completed</option>
+        </select>
+      </div>
+    </div>
+
+    <ul id="list" class="game-list" aria-live="polite"></ul>
+    <div class="load-more-wrap"><button id="more" class="load-more" hidden>Show more</button></div>
+
+    <footer><span id="updated"></span></footer>
+  </main>
+  <script src="list.js"></script>
+</body>
+</html>
